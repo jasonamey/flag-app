@@ -1,10 +1,10 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, {useState, useEffect, useRef} from "react";
 import Country from "../components/Country";
 import Filter from "../components/Filter";
 import Search from "../components/Search";
 import styled from "styled-components";
 
-function CountriesPage({ countriesData, loading }) {
+function CountriesPage({countriesData, loading}) {
   const [countries, setCountries] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [filterTerm, setFilterTerm] = useState("");
@@ -83,26 +83,10 @@ const CountriesPageWrapper = styled.main`
     margin-bottom: 42px;
   }
   .countries-container {
-    display: grid;
-    grid-template-columns: repeat(4, 166px);
+    display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
-    grid-gap: 50px;
-  }
-
-  @media screen and (max-width: 870px) {
-    .countries-container {
-      display: grid;
-      grid-template-columns: repeat(3, 166px);
-      grid-gap: 20px;
-    }
-  }
-
-  @media screen and (max-width: 570px) {
-    .countries-container {
-      display: grid;
-      grid-template-columns: repeat(2, 166px);
-      grid-gap: 5px;
-    }
+    gap: 30px;
   }
 
   @media screen and (max-width: 480px) {

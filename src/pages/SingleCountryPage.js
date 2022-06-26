@@ -1,21 +1,19 @@
-import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import {useState, useEffect} from "react";
+import {Link} from "react-router-dom";
 import useHttp from "../hooks/useHttp";
-import { HiOutlineArrowNarrowLeft } from "react-icons/hi";
-import { useParams, useHistory } from "react-router-dom";
+import {HiOutlineArrowNarrowLeft} from "react-icons/hi";
+import {useParams, useHistory} from "react-router-dom";
 import styled from "styled-components";
 import countryCodes from "../utils/country-codes.json";
-
-// const URL = "https://restcountries.eu/rest/v2/name/";
 
 function SingleCountryPage() {
   const [country, setCountry] = useState(null);
 
-  const { id } = useParams();
+  const {id} = useParams();
 
   const history = useHistory();
 
-  const { fetchData: fetchCountry } = useHttp();
+  const {fetchData: fetchCountry} = useHttp();
 
   const destructureAndSetCountry = (data) => {
     const borders = data.borders ? data.borders : [];
@@ -116,8 +114,8 @@ function SingleCountryPage() {
                   return (
                     <Link
                       key={idx}
-                      to={`/${countryCodes[code]}`}
-                      style={{ color: "black", textDecoration: "none" }}
+                      to={`/${code}`}
+                      style={{color: "black", textDecoration: "none"}}
                     >
                       <li className="border-country">{countryCodes[code]}</li>
                     </Link>
@@ -138,8 +136,8 @@ const SingleCountryPageWrapper = styled.main`
   width : 90vw;
   margin: 0 auto;
   .btn {
-    background-color: ${({ theme }) => theme.appComponentsColor};
-    color: ${({ theme }) => theme.appColor};
+    background-color: ${({theme}) => theme.appComponentsColor};
+    color: ${({theme}) => theme.appColor};
     display : flex; 
     align-items : center; 
     justify-content : center;
@@ -148,7 +146,7 @@ const SingleCountryPageWrapper = styled.main`
     width: 82px;
     border: none;
     border-radius: 4px;
-    box-shadow: ${({ theme }) => theme.boxShadow};
+    box-shadow: ${({theme}) => theme.boxShadow};
     cursor: pointer;
     margin-bottom : 55px;
     .arrow {
@@ -208,8 +206,8 @@ const SingleCountryPageWrapper = styled.main`
             font-size : 10px;
             padding : 2px 7px;
             box-shadow : 1px 1px 3px 0 rgba(0,0,0,0.2);
-            background-color: ${({ theme }) => theme.appComponentsColor};
-            color: ${({ theme }) => theme.appColor};
+            background-color: ${({theme}) => theme.appComponentsColor};
+            color: ${({theme}) => theme.appColor};
           }
         } 
     }
